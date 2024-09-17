@@ -35,9 +35,21 @@ export class UsersService {
     return `This action removes a #${id} user`;
   }
 
-  async findOneByParam(params: { [key: string]: any }): Promise<User | undefined> {
+  async findOneByParam(params: { [key: string]: any }, relations?: string[]): Promise<User | undefined> {
     // Find and return the record based on dynamic parameters
-    return this.userRepository.findOneBy(params);
+    // return this.userRepository.findOneBy(params);
+    return this.userRepository.findOne({
+      where: params,
+      relations
+    });
+  }
+
+  async findWithRelations(params: { [key: string]: any }, relations: string[]): Promise<User | undefined> {
+    // Find and return the record based on dynamic parameters
+    return this.userRepository.findOne({
+      where: params,
+      relations
+    });
   }
 
   async addRoleToUser(user: User, role: Role): Promise<User> {

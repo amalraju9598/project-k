@@ -7,9 +7,15 @@ import {
   Param,
   Delete,
   Headers,
+  UseGuards,
+  Req,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { SignInDto } from './dto/signIn.dto';
+import { AccessTokenGuard } from 'src/common/guards/accessToken.guard';
+import { RolesGuard } from 'src/common/guards/roles.guard';
+import { Role } from 'src/common/decorators/roles.decorator';
+import { Request, Response } from 'express';
 
 
 @Controller('auth')
@@ -21,23 +27,9 @@ export class AuthController {
     return this.authService.signIn(signInDto, headers);
   }
 
-  // @Get()
-  // findAll() {
-  //   return this.authService.findAll();
-  // }
-
-  // @Get(':id')
-  // findOne(@Param('id') id: string) {
-  //   return this.authService.findOne(+id);
-  // }
-
-  // @Patch(':id')
-  // update(@Param('id') id: string, @Body() updateAuthDto: UpdateAuthDto) {
-  //   return this.authService.update(+id, updateAuthDto);
-  // }
-
-  // @Delete(':id')
-  // remove(@Param('id') id: string) {
-  //   return this.authService.remove(+id);
-  // }
+  @UseGuards(AccessTokenGuard)
+  @Get('me')
+  findOne(@Req() req: Request) {
+    return this.authService.me(req['uid']);
+  }
 }

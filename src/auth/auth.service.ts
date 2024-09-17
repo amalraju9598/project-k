@@ -17,11 +17,9 @@ export class AuthService {
   async signIn(signInDto: SignInDto, headers: any) {
     const user = await this.validateUser(signInDto, headers);
     const tokens = await this.authTokenService.generateTokens(user.id, user.email);
-    user['tokens'] = tokens;
-
     return this.responseService.successResponse(
-      'user logged successfully',
-      user,
+      'User logged successfully',
+      { user, tokens },
     );
   }
 
@@ -47,5 +45,10 @@ export class AuthService {
     // }
 
     return user;
+  }
+
+  async me(id: string) {
+    const user = await this.usersService.findOneByParam({ id })
+    return this.responseService.successResponse("Authenticated user", user)
   }
 }
