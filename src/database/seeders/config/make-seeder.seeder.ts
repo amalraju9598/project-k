@@ -19,11 +19,11 @@ export class ${className} implements Seeder {
   constructor() {}
 
   async seed(): Promise<any> {
-    // Generate and insert user data
+    // Generate and insert  data
   }
 
   async drop(): Promise<any> {
-    // Drop user data
+    // Drop data
   }
 }`;
 

@@ -5,7 +5,7 @@ import { ConfigModule } from '@nestjs/config';
 import { RoleSeeder } from '../roleseeder.seeder';
 import { User } from 'src/users/entities/user.entity';
 import { Role } from 'src/roles/entities/role.entity';
-import { SuperAdminSeeder } from './superadminseeder.seeder';
+import { SuperAdminSeeder } from '../superadminseeder.seeder';
 
 seeder({
   imports: [

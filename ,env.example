@@ -1,0 +1,19 @@
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_USER=root
+DB_PASSWORD=
+DB_NAME=projectKDB
+
+#NODE_PORT
+PORT=3028
+
+#JWT
+# generate by following command : node -e "console.log(require('crypto').randomBytes(256).toString('base64'));"
+#
+JWT_ACCESS_SECRET=YsixhMOmXK5BOt7KQeK+0K2jtiCd0aDgMY0MXYpnZJ4XwV
+JWT_REFRESH_SECRET=GMxhCxHNkjHITTpQW3T0KsJZKBGUa
+JWT_ACCESS_EXPIRY='120m'
+JWT_REFRESH_EXPIRY='7d'
+
+
