@@ -7,6 +7,8 @@ import { UsersModule } from './users/users.module';
 import { RolesModule } from './roles/roles.module';
 import { AuthModule } from './auth/auth.module';
 import { CommonModule } from './common/common.module';
+import { NotificationsModule } from './notifications/notifications.module';
+import { NotificationsModule } from './notifications/notifications.module';
 
 @Module({
   imports: [
@@ -25,7 +27,8 @@ import { CommonModule } from './common/common.module';
     UsersModule,
     RolesModule,
     AuthModule,
-    CommonModule
+    CommonModule,
+    NotificationsModule
   ],
   controllers: [AppController],
   providers: [AppService],
