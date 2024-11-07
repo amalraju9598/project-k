@@ -7,6 +7,7 @@ import { UsersModule } from './users/users.module';
 import { RolesModule } from './roles/roles.module';
 import { AuthModule } from './auth/auth.module';
 import { CommonModule } from './common/common.module';
+import { FileUploadsModule } from './file_uploads/file_uploads.module';
 
 
 @Module({
@@ -27,6 +28,7 @@ import { CommonModule } from './common/common.module';
     RolesModule,
     AuthModule,
     CommonModule,
+    FileUploadsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
